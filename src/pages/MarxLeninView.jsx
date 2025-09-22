@@ -64,30 +64,41 @@ const MarxLeninView = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            {data.title}
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            {data.introduction}
-          </p>
-        </motion.div>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex">
+      {/* Fixed Sidebar */}
+      <div className="hidden lg:block w-80 bg-white dark:bg-gray-800 shadow-lg fixed left-0 top-0 h-screen overflow-y-auto z-10">
+        <div className="p-6 pb-20">
+          <MainContentSidebar
+            title="Nội dung chương"
+            showProgress={false}
+            showStats={false}
+          />
+        </div>
+      </div>
 
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-          {/* Main Content - Takes 2 columns on large screens */}
+      {/* Main Content Area */}
+      <div className="flex-1 lg:ml-80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center mb-12"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              {data.title}
+            </h1>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              {data.introduction}
+            </p>
+          </motion.div>
+
+          {/* Main Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-2"
+            className="mb-16"
           >
             <ContentCard
               title="Quan điểm cơ bản"
@@ -125,27 +136,12 @@ const MarxLeninView = () => {
             </ContentCard>
           </motion.div>
 
-          {/* Sidebar - Takes 1 column on large screens */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <MainContentSidebar
-              title="Nội dung chương"
-              showProgress={false}
-              showStats={false}
-            />
-          </motion.div>
-        </div>
-
-        {/* Characteristics */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          {/* Characteristics */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-2"
+            className="mb-16"
           >
             <ContentCard
               title="Ba đặc điểm cơ bản của tôn giáo"
@@ -174,43 +170,12 @@ const MarxLeninView = () => {
             </ContentCard>
           </motion.div>
 
-          {/* Sidebar for Characteristics */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-6"
-          >
-            <ContentCard
-              title="Đặc điểm tóm tắt"
-              icon="📝"
-              pageId="marx-lenin-char-summary"
-            >
-              <div className="space-y-4">
-                <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                  <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Sản phẩm xã hội</h4>
-                  <p className="text-sm text-blue-700 dark:text-blue-300">Xuất hiện khi con người bất lực trước tự nhiên và xã hội</p>
-                </div>
-                <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-                  <h4 className="font-semibold text-purple-900 dark:text-purple-100 mb-2">Phản ánh hư ảo</h4>
-                  <p className="text-sm text-purple-700 dark:text-purple-300">Thay vì giải thích bằng khoa học, dùng niềm tin siêu nhiên</p>
-                </div>
-                <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
-                  <h4 className="font-semibold text-red-900 dark:text-red-100 mb-2">Thuốc an thần</h4>
-                  <p className="text-sm text-red-700 dark:text-red-300">Xoa dịu nỗi khổ tinh thần nhưng làm con người cam chịu</p>
-                </div>
-              </div>
-            </ContentCard>
-          </motion.div>
-        </div>
-
-        {/* Key Principles */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          {/* Key Principles */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="lg:col-span-2"
+            className="mb-16"
           >
             <ContentCard
               title="Nguyên lý cơ bản"
@@ -243,43 +208,12 @@ const MarxLeninView = () => {
             </ContentCard>
           </motion.div>
 
-          {/* Sidebar for Key Principles */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="space-y-6"
-          >
-            <ContentCard
-              title="Nguyên lý tóm tắt"
-              icon="⚖️"
-              pageId="marx-lenin-principles-summary"
-            >
-              <div className="space-y-4">
-                <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                  <h4 className="font-semibold text-green-900 dark:text-green-100 mb-2">Duy vật lịch sử</h4>
-                  <p className="text-sm text-green-700 dark:text-green-300">Tôn giáo là sản phẩm của điều kiện kinh tế - xã hội</p>
-                </div>
-                <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
-                  <h4 className="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">Biện chứng</h4>
-                  <p className="text-sm text-yellow-700 dark:text-yellow-300">Vừa có mặt tích cực vừa có mặt tiêu cực</p>
-                </div>
-                <div className="p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
-                  <h4 className="font-semibold text-indigo-900 dark:text-indigo-100 mb-2">Thực tiễn cách mạng</h4>
-                  <p className="text-sm text-indigo-700 dark:text-indigo-300">Áp dụng vào việc xây dựng xã hội mới</p>
-                </div>
-              </div>
-            </ContentCard>
-          </motion.div>
-        </div>
-
-        {/* Historical Context */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          {/* Historical Context */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="lg:col-span-2"
+            className="mb-16"
           >
             <ContentCard
               title="Bối cảnh lịch sử phát triển"
@@ -322,43 +256,12 @@ const MarxLeninView = () => {
             </ContentCard>
           </motion.div>
 
-          {/* Sidebar for Historical Context */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="space-y-6"
-          >
-            <ContentCard
-              title="Timeline lịch sử"
-              icon="📅"
-              pageId="marx-lenin-timeline"
-            >
-              <div className="space-y-4">
-                <div className="border-l-4 border-blue-500 pl-4">
-                  <h4 className="font-semibold text-blue-900 dark:text-blue-100">Thế kỷ XIX</h4>
-                  <p className="text-sm text-blue-700 dark:text-blue-300">Karl Marx phát triển quan điểm</p>
-                </div>
-                <div className="border-l-4 border-green-500 pl-4">
-                  <h4 className="font-semibold text-green-900 dark:text-green-100">Đầu thế kỷ XX</h4>
-                  <p className="text-sm text-green-700 dark:text-green-300">V.I. Lenin kế thừa và phát triển</p>
-                </div>
-                <div className="border-l-4 border-purple-500 pl-4">
-                  <h4 className="font-semibold text-purple-900 dark:text-purple-100">Hiện tại</h4>
-                  <p className="text-sm text-purple-700 dark:text-purple-300">Ứng dụng vào thực tiễn Việt Nam</p>
-                </div>
-              </div>
-            </ContentCard>
-          </motion.div>
-        </div>
-
-        {/* Example */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          {/* Example */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="lg:col-span-2"
+            className="mb-16"
           >
             <ContentCard
               title={data.example.title}
@@ -396,47 +299,12 @@ const MarxLeninView = () => {
             </ContentCard>
           </motion.div>
 
-          {/* Sidebar for Example */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-            className="space-y-6"
-          >
-            <ContentCard
-              title="Phân tích ví dụ"
-              icon="🔍"
-              pageId="marx-lenin-example-analysis"
-            >
-              <div className="space-y-3">
-                <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
-                  <h4 className="font-semibold text-yellow-900 dark:text-yellow-100 mb-1">Bất lực trước tự nhiên</h4>
-                  <p className="text-sm text-yellow-700 dark:text-yellow-300">Không hiểu nguyên nhân thiên tai</p>
-                </div>
-                <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
-                  <h4 className="font-semibold text-red-900 dark:text-red-100 mb-1">Bất lực trước xã hội</h4>
-                  <p className="text-sm text-red-700 dark:text-red-300">Không thể thay đổi chế độ áp bức</p>
-                </div>
-                <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-                  <h4 className="font-semibold text-purple-900 dark:text-purple-100 mb-1">Phản ánh hư ảo</h4>
-                  <p className="text-sm text-purple-700 dark:text-purple-300">Tin vào "số mệnh" thay vì khoa học</p>
-                </div>
-                <div className="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
-                  <h4 className="font-semibold text-orange-900 dark:text-orange-100 mb-1">Thuốc an thần</h4>
-                  <p className="text-sm text-orange-700 dark:text-orange-300">Xoa dịu nỗi khổ nhưng làm chậm đấu tranh</p>
-                </div>
-              </div>
-            </ContentCard>
-          </motion.div>
-        </div>
-
-        {/* Conclusion */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          {/* Conclusion */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.0 }}
-            className="lg:col-span-2"
+            className="mb-16"
           >
             <ContentCard
               title="Kết luận"
@@ -476,103 +344,64 @@ const MarxLeninView = () => {
             </ContentCard>
           </motion.div>
 
-          {/* Sidebar for Conclusion */}
+          {/* Quiz Section */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
-            className="space-y-6"
+            className="mb-16"
           >
-            <ContentCard
-              title="Tóm tắt quan điểm"
-              icon="📋"
-              pageId="marx-lenin-summary"
-            >
-              <div className="space-y-4">
-                <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                  <h4 className="font-semibold text-green-900 dark:text-green-100 mb-2 flex items-center">
-                    <FiCheckCircle className="mr-2" size={16} />
-                    Mặt tích cực
-                  </h4>
-                  <ul className="text-sm text-green-700 dark:text-green-300 space-y-1">
-                    <li>• An ủi tinh thần</li>
-                    <li>• Gắn kết cộng đồng</li>
-                    <li>• Bảo tồn văn hóa</li>
-                  </ul>
-                </div>
-                <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
-                  <h4 className="font-semibold text-red-900 dark:text-red-100 mb-2 flex items-center">
-                    <FiTarget className="mr-2" size={16} />
-                    Mặt tiêu cực
-                  </h4>
-                  <ul className="text-sm text-red-700 dark:text-red-300 space-y-1">
-                    <li>• Làm chậm nhận thức</li>
-                    <li>• Cản trở cải tạo xã hội</li>
-                    <li>• Có thể bị lợi dụng</li>
-                  </ul>
-                </div>
+            <Quiz
+              questions={marxLeninQuiz}
+              title="Quiz: Quan điểm Mác-Lênin về tôn giáo"
+            />
+          </motion.div>
+
+          {/* Note Taking Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
+            className="mb-16"
+          >
+            <NoteTaking
+              pageId="marx-lenin-view"
+              pageTitle="Quan điểm Mác-Lênin về tôn giáo"
+            />
+          </motion.div>
+
+          {/* Next Steps */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.6 }}
+            className="text-center"
+          >
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-white">
+              <h2 className="text-3xl font-bold mb-4">
+                Tiếp tục học tập
+              </h2>
+              <p className="text-xl mb-8 opacity-90">
+                Bây giờ bạn đã hiểu quan điểm Mác-Lênin, hãy tìm hiểu về tôn giáo trong xã hội chủ nghĩa
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="/socialism-religion"
+                  className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  <FiBookOpen className="mr-2" size={20} />
+                  Tôn giáo trong XHCN
+                </a>
+                <a
+                  href="/vietnam-policy"
+                  className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-colors"
+                >
+                  Chính sách Việt Nam
+                </a>
               </div>
-            </ContentCard>
+            </div>
           </motion.div>
         </div>
-
-        {/* Quiz Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="mb-16"
-        >
-          <Quiz
-            questions={marxLeninQuiz}
-            title="Quiz: Quan điểm Mác-Lênin về tôn giáo"
-          />
-        </motion.div>
-
-        {/* Note Taking Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
-          className="mb-16"
-        >
-          <NoteTaking
-            pageId="marx-lenin-view"
-            pageTitle="Quan điểm Mác-Lênin về tôn giáo"
-          />
-        </motion.div>
-
-        {/* Next Steps */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.6 }}
-          className="text-center"
-        >
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-white">
-            <h2 className="text-3xl font-bold mb-4">
-              Tiếp tục học tập
-            </h2>
-            <p className="text-xl mb-8 opacity-90">
-              Bây giờ bạn đã hiểu quan điểm Mác-Lênin, hãy tìm hiểu về tôn giáo trong xã hội chủ nghĩa
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/socialism-religion"
-                className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
-              >
-                <FiBookOpen className="mr-2" size={20} />
-                Tôn giáo trong XHCN
-              </a>
-              <a
-                href="/vietnam-policy"
-                className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-colors"
-              >
-                Chính sách Việt Nam
-              </a>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </div>
   );

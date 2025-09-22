@@ -4,7 +4,6 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import { AppProvider } from './contexts/AppContext';
 import Header from './components/Layout/Header';
 import Sidebar from './components/Layout/Sidebar';
-import Footer from './components/Layout/Footer';
 import ProgressBar from './components/Layout/ProgressBar';
 import SearchBox from './components/Interactive/SearchBox';
 import Home from './pages/Home';
@@ -15,6 +14,10 @@ import VietnamPolicy from './pages/VietnamPolicy';
 import PracticalApplication from './pages/PracticalApplication';
 import Solutions from './pages/Solutions';
 import Conclusion from './pages/Conclusion';
+import Overview from './pages/Overview';
+import Progress from './pages/Progress';
+import Stats from './pages/Stats';
+import Goals from './pages/Goals';
 import './styles/globals.css';
 
 function App() {
@@ -39,10 +42,13 @@ function App() {
                 <Route path="/practical" element={<PracticalApplication />} />
                 <Route path="/solutions" element={<Solutions />} />
                 <Route path="/conclusion" element={<Conclusion />} />
+                <Route path="/overview" element={<Overview />} />
+                <Route path="/progress" element={<Progress />} />
+                <Route path="/stats" element={<Stats />} />
+                <Route path="/goals" element={<Goals />} />
               </Routes>
             </main>
 
-            <Footer />
 
             {/* Search Modal */}
             {showSearch && (

@@ -435,3 +435,218 @@ body {
 .toast-info {
   @apply border-blue-500 bg-blue-50 dark:bg-blue-900/20;
 }
+
+/* Sidebar Styles */
+.sidebar-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 320px;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.dark .sidebar-container {
+  background: #1f2937;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-content {
+  padding: 1.5rem;
+  padding-bottom: 5rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Smooth scrolling for sidebar */
+.sidebar-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-container::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.sidebar-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.dark .sidebar-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dark .sidebar-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Main content area adjustment */
+.main-content-with-sidebar {
+  margin-left: 320px;
+  min-height: 100vh;
+}
+
+.main-content-with-both-sidebars {
+  margin-left: 320px;
+  margin-right: 320px;
+  min-height: 100vh;
+}
+
+/* Right sidebar styles */
+.right-sidebar-container {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 320px;
+  background: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.dark .right-sidebar-container {
+  background: #1f2937;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Header Styles */
+.header-container {
+  background: linear-gradient(135deg, #d9e8e0 0%, #e0f2fe 100%);
+  border-bottom: 2px solid #044e9e;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dark .header-container {
+  background: linear-gradient(135deg, #273952 0%, #111827 100%);
+  border-bottom: 2px solid #10b981;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(90deg, #f97316 0%, #eab308 25%, #22c55e 50%, #3b82f6 100%);
+  border-radius: 8px 0 0 8px;
+  margin-right: 12px;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1;
+}
+
+.dark .logo-text {
+  color: #f9fafb;
+}
+
+.logo-trademark {
+  font-size: 0.75rem;
+  color: #6b7280;
+  vertical-align: super;
+}
+
+.navigation-container {
+  background: #6a8078;
+  border-radius: 24px;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark .navigation-container {
+  background: #374151;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #d1d5db;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+.nav-link.active {
+  color: #ffffff;
+}
+
+.nav-button {
+  background: #d9e8e0;
+  color: #1f2937;
+  border: 1px solid #6a8078;
+  border-radius: 16px;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-button:hover {
+  background: #c7e2d0;
+  transform: translateY(-1px);
+}
+
+.dark .nav-button {
+  background: #1f2937;
+  color: #f9fafb;
+  border-color: #374151;
+}
+
+.dark .nav-button:hover {
+  background: #374151;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1023px) {
+  .sidebar-container {
+    display: none;
+  }
+
+  .right-sidebar-container {
+    display: none;
+  }
+
+  .main-content-with-sidebar {
+    margin-left: 0;
+  }
+
+  .main-content-with-both-sidebars {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .tab-button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}
