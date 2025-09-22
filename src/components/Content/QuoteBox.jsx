@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiQuote } from 'react-icons/fi';
+import { MdFormatQuote } from 'react-icons/md';
 
-const QuoteBox = ({ 
-  quote, 
-  author, 
-  source, 
+const QuoteBox = ({
+  quote,
+  author,
+  source,
   delay = 0,
   className = "",
-  variant = "default" 
+  variant = "default"
 }) => {
   const variants = {
     default: "border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900/20",
@@ -25,20 +25,19 @@ const QuoteBox = ({
       className={`rounded-lg p-6 my-6 ${variants[variant]} ${className}`}
     >
       <div className="flex items-start">
-        <FiQuote 
-          size={24} 
-          className={`mt-1 mr-3 ${
-            variant === 'default' ? 'text-blue-500' :
+        <MdFormatQuote
+          size={24}
+          className={`mt-1 mr-3 ${variant === 'default' ? 'text-blue-500' :
             variant === 'warning' ? 'text-yellow-500' :
-            variant === 'success' ? 'text-green-500' :
-            'text-red-500'
-          }`} 
+              variant === 'success' ? 'text-green-500' :
+                'text-red-500'
+            }`}
         />
         <div className="flex-1">
           <blockquote className="text-lg font-medium text-gray-800 dark:text-gray-200 leading-relaxed mb-3">
             "{quote}"
           </blockquote>
-          
+
           {(author || source) && (
             <div className="text-sm text-gray-600 dark:text-gray-400">
               {author && (
