@@ -13,9 +13,9 @@ const PracticalApplication = () => {
   const data = contentData.thucTienVietNam;
 
   // Filter quiz questions related to practical application
-  const practicalQuiz = quizData.filter(q => 
-    q.question.includes('thực tiễn') || 
-    q.question.includes('Việt Nam') || 
+  const practicalQuiz = quizData.filter(q =>
+    q.question.includes('thực tiễn') ||
+    q.question.includes('Việt Nam') ||
     q.question.includes('hòa hợp')
   );
 
@@ -198,7 +198,7 @@ const PracticalApplication = () => {
             {data.title}
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Thực tiễn hòa hợp tôn giáo trong xã hội Việt Nam hiện nay cho thấy 
+            Thực tiễn hòa hợp tôn giáo trong xã hội Việt Nam hiện nay cho thấy
             sự thành công trong việc áp dụng quan điểm Mác-Lênin vào điều kiện cụ thể
           </p>
         </motion.div>
@@ -301,7 +301,7 @@ const PracticalApplication = () => {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {achievement.details.map((detail, detailIndex) => (
                       <div key={detailIndex} className="flex items-start">
@@ -340,7 +340,7 @@ const PracticalApplication = () => {
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
                     {example.organization}
                   </h3>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <h4 className="font-medium text-gray-900 dark:text-white mb-2">
@@ -355,7 +355,7 @@ const PracticalApplication = () => {
                         ))}
                       </ul>
                     </div>
-                    
+
                     <div className="bg-blue-50 dark:bg-blue-900/20 rounded p-3">
                       <h4 className="font-medium text-blue-800 dark:text-blue-300 mb-1">
                         Tác động:
@@ -382,6 +382,7 @@ const PracticalApplication = () => {
             title="Các ví dụ thực tiễn"
             icon="💡"
             pageId="practical-content-examples"
+            images={data.images}
           >
             <div className="space-y-4">
               {data.examples.map((example, index) => (
@@ -466,11 +467,10 @@ const PracticalApplication = () => {
                       {direction.direction}
                     </h3>
                     <div className="flex items-center space-x-2">
-                      <span className={`text-xs px-2 py-1 rounded ${
-                        direction.priority === 'Cao' ? 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300' :
+                      <span className={`text-xs px-2 py-1 rounded ${direction.priority === 'Cao' ? 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300' :
                         direction.priority === 'Trung bình' ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300' :
-                        'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300'
-                      }`}>
+                          'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300'
+                        }`}>
                         {direction.priority}
                       </span>
                     </div>
@@ -494,8 +494,8 @@ const PracticalApplication = () => {
           transition={{ duration: 0.8, delay: 1.2 }}
           className="mb-16"
         >
-          <Quiz 
-            questions={practicalQuiz} 
+          <Quiz
+            questions={practicalQuiz}
             title="Quiz: Thực tiễn tôn giáo tại Việt Nam"
           />
         </motion.div>
@@ -507,9 +507,9 @@ const PracticalApplication = () => {
           transition={{ duration: 0.8, delay: 1.4 }}
           className="mb-16"
         >
-          <NoteTaking 
-            pageId="practical" 
-            pageTitle="Thực tiễn tôn giáo tại Việt Nam" 
+          <NoteTaking
+            pageId="practical"
+            pageTitle="Thực tiễn tôn giáo tại Việt Nam"
           />
         </motion.div>
 

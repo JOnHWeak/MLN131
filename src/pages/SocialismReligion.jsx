@@ -13,9 +13,9 @@ const SocialismReligion = () => {
   const data = contentData.tonGiaoTrongXHCN;
 
   // Filter quiz questions related to socialism and religion
-  const socialismQuiz = quizData.filter(q => 
-    q.question.includes('xã hội chủ nghĩa') || 
-    q.question.includes('CNXH') || 
+  const socialismQuiz = quizData.filter(q =>
+    q.question.includes('xã hội chủ nghĩa') ||
+    q.question.includes('CNXH') ||
     q.question.includes('thời kỳ quá độ')
   );
 
@@ -168,13 +168,15 @@ const SocialismReligion = () => {
             title="Tại sao tôn giáo vẫn tồn tại trong XHCN?"
             icon="🤔"
             pageId="socialism-why-exists"
+            image={data.image}
+            imageCaption={data.imageCaption}
           >
             <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 mb-6">
               <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
                 {data.reason}
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
@@ -195,7 +197,7 @@ const SocialismReligion = () => {
                   </li>
                 </ul>
               </div>
-              
+
               <div>
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
                   Quan điểm khoa học:
@@ -305,7 +307,7 @@ const SocialismReligion = () => {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-2">
                     <h4 className="text-sm font-medium text-gray-900 dark:text-white">
                       Các biện pháp cụ thể:
@@ -341,7 +343,7 @@ const SocialismReligion = () => {
               quote={data.example}
               variant="info"
             />
-            
+
             <div className="mt-6 bg-gray-50 dark:bg-gray-700 rounded-lg p-6">
               <h4 className="font-semibold text-gray-900 dark:text-white mb-4">
                 Bài học kinh nghiệm:
@@ -417,8 +419,8 @@ const SocialismReligion = () => {
           transition={{ duration: 0.8, delay: 1.2 }}
           className="mb-16"
         >
-          <Quiz 
-            questions={socialismQuiz} 
+          <Quiz
+            questions={socialismQuiz}
             title="Quiz: Tôn giáo trong xã hội chủ nghĩa"
           />
         </motion.div>
@@ -430,9 +432,9 @@ const SocialismReligion = () => {
           transition={{ duration: 0.8, delay: 1.4 }}
           className="mb-16"
         >
-          <NoteTaking 
-            pageId="socialism-religion" 
-            pageTitle="Tôn giáo trong xã hội chủ nghĩa" 
+          <NoteTaking
+            pageId="socialism-religion"
+            pageTitle="Tôn giáo trong xã hội chủ nghĩa"
           />
         </motion.div>
 

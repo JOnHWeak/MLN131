@@ -5,6 +5,7 @@ import QuoteBox from '../components/Content/QuoteBox';
 import StatisticsChart from '../components/Content/StatisticsChart';
 import Quiz from '../components/Interactive/Quiz';
 import NoteTaking from '../components/Interactive/NoteTaking';
+import MainContentSidebar from '../components/Layout/MainContentSidebar';
 import { contentData } from '../data/content';
 import { quizData } from '../data/quiz';
 import { FiFlag, FiShield, FiUsers, FiBookOpen, FiCheckCircle, FiAlertTriangle } from 'react-icons/fi';
@@ -13,9 +14,9 @@ const VietnamPolicy = () => {
   const data = contentData.chinhSachVietNam;
 
   // Filter quiz questions related to Vietnam policy
-  const vietnamQuiz = quizData.filter(q => 
-    q.question.includes('Việt Nam') || 
-    q.question.includes('Hiến pháp') || 
+  const vietnamQuiz = quizData.filter(q =>
+    q.question.includes('Việt Nam') ||
+    q.question.includes('Hiến pháp') ||
     q.question.includes('chính sách')
   );
 
@@ -77,7 +78,7 @@ const VietnamPolicy = () => {
       description: "43 tổ chức tôn giáo được công nhận",
       details: [
         "Giáo hội Phật giáo Việt Nam",
-        "Giáo hội Công giáo Việt Nam", 
+        "Giáo hội Công giáo Việt Nam",
         "Tổng hội thánh Tin Lành Việt Nam",
         "Các tổ chức Cao Đài, Hòa Hảo, Hồi giáo..."
       ],
@@ -165,48 +166,66 @@ const VietnamPolicy = () => {
             {data.title}
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Chính sách tôn giáo của Việt Nam được xây dựng trên cơ sở quan điểm Mác-Lênin 
+            Chính sách tôn giáo của Việt Nam được xây dựng trên cơ sở quan điểm Mác-Lênin
             và phù hợp với điều kiện thực tế của đất nước
           </p>
         </motion.div>
 
-        {/* Main Policies */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
-        >
-          <ContentCard
-            title="Các chính sách cơ bản"
-            icon="📋"
-            pageId="vietnam-policies"
+        {/* Main Policies Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          {/* Main Content - Takes 2 columns on large screens */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-2"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {data.policies.map((policy, index) => (
-                <motion.div
-                  key={policy.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border-l-4 ${policy.color}`}
-                >
-                  <div className="flex items-start space-x-4">
-                    <div className="text-2xl">{policy.icon}</div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                        {policy.title}
-                      </h3>
-                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                        {policy.content}
-                      </p>
+            <ContentCard
+              title="Các chính sách cơ bản"
+              icon="📋"
+              pageId="vietnam-policies"
+              image={data.image}
+              imageCaption={data.imageCaption}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {data.policies.map((policy, index) => (
+                  <motion.div
+                    key={policy.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className={`bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border-l-4 ${policy.color}`}
+                  >
+                    <div className="flex items-start space-x-4">
+                      <div className="text-2xl">{policy.icon}</div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                          {policy.title}
+                        </h3>
+                        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                          {policy.content}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </ContentCard>
-        </motion.div>
+                  </motion.div>
+                ))}
+              </div>
+            </ContentCard>
+          </motion.div>
+
+          {/* Sidebar - Takes 1 column on large screens */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <MainContentSidebar
+              title="Nội dung chương"
+              showProgress={false}
+              showStats={false}
+            />
+          </motion.div>
+        </div>
 
         {/* Legal Framework */}
         <motion.div
@@ -238,12 +257,11 @@ const VietnamPolicy = () => {
                         {doc.article}
                       </p>
                     </div>
-                    <span className={`text-xs px-2 py-1 rounded ${
-                      doc.importance === 'Cao nhất' ? 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300' :
+                    <span className={`text-xs px-2 py-1 rounded ${doc.importance === 'Cao nhất' ? 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300' :
                       doc.importance === 'Cao' ? 'bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300' :
-                      doc.importance === 'Trung bình' ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300' :
-                      'bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300'
-                    }`}>
+                        doc.importance === 'Trung bình' ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300' :
+                          'bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300'
+                      }`}>
                       {doc.importance}
                     </span>
                   </div>
@@ -284,12 +302,11 @@ const VietnamPolicy = () => {
                         {item.area}
                       </h3>
                       <div className="flex items-center space-x-2 mb-2">
-                        <span className={`text-sm px-2 py-1 rounded ${
-                          item.status === 'Thành công' ? 'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300' :
+                        <span className={`text-sm px-2 py-1 rounded ${item.status === 'Thành công' ? 'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300' :
                           item.status === 'Tích cực' ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300' :
-                          item.status === 'Hiệu quả' ? 'bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300' :
-                          'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300'
-                        }`}>
+                            item.status === 'Hiệu quả' ? 'bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300' :
+                              'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300'
+                          }`}>
                           {item.status}
                         </span>
                       </div>
@@ -298,7 +315,7 @@ const VietnamPolicy = () => {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div>
                     <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-2">
                       Các hoạt động cụ thể:
@@ -433,8 +450,8 @@ const VietnamPolicy = () => {
           transition={{ duration: 0.8, delay: 1.2 }}
           className="mb-16"
         >
-          <Quiz 
-            questions={vietnamQuiz} 
+          <Quiz
+            questions={vietnamQuiz}
             title="Quiz: Chính sách tôn giáo Việt Nam"
           />
         </motion.div>
@@ -446,9 +463,9 @@ const VietnamPolicy = () => {
           transition={{ duration: 0.8, delay: 1.4 }}
           className="mb-16"
         >
-          <NoteTaking 
-            pageId="vietnam-policy" 
-            pageTitle="Chính sách tôn giáo Việt Nam" 
+          <NoteTaking
+            pageId="vietnam-policy"
+            pageTitle="Chính sách tôn giáo Việt Nam"
           />
         </motion.div>
 

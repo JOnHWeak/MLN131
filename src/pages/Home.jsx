@@ -5,6 +5,7 @@ import HeroSection from '../components/Content/HeroSection';
 import ContentCard from '../components/Content/ContentCard';
 import QuoteBox from '../components/Content/QuoteBox';
 import StatisticsChart from '../components/Content/StatisticsChart';
+import MainContentSidebar from '../components/Layout/MainContentSidebar';
 import { contentData } from '../data/content';
 import { FiArrowRight, FiBookOpen, FiUsers, FiTarget, FiTrendingUp } from 'react-icons/fi';
 
@@ -121,13 +122,13 @@ const Home = () => {
             pageId="home-intro"
           >
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-              Môn học "Bản chất tôn giáo theo quan điểm Mác – Lênin" cung cấp cho sinh viên 
-              những kiến thức cơ bản về quan điểm khoa học của chủ nghĩa Mác-Lênin đối với 
-              hiện tượng tôn giáo trong xã hội. Thông qua việc nghiên cứu lý thuyết và thực tiễn, 
-              sinh viên sẽ hiểu rõ bản chất, vai trò và vị trí của tôn giáo trong quá trình 
+              Môn học "Bản chất tôn giáo theo quan điểm Mác – Lênin" cung cấp cho sinh viên
+              những kiến thức cơ bản về quan điểm khoa học của chủ nghĩa Mác-Lênin đối với
+              hiện tượng tôn giáo trong xã hội. Thông qua việc nghiên cứu lý thuyết và thực tiễn,
+              sinh viên sẽ hiểu rõ bản chất, vai trò và vị trí của tôn giáo trong quá trình
               xây dựng xã hội chủ nghĩa.
             </p>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
@@ -148,7 +149,7 @@ const Home = () => {
                   </li>
                 </ul>
               </div>
-              
+
               <div>
                 <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
                   Phương pháp học:
@@ -258,55 +259,71 @@ const Home = () => {
           </div>
         </motion.section>
 
-        {/* Quick Links */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mb-16"
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Bắt đầu học ngay
-            </h2>
-            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Chọn chủ đề bạn quan tâm để bắt đầu hành trình học tập
-            </p>
-          </div>
+        {/* Main Content with Sidebar */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-16">
+          {/* Main Content - Takes 3 columns on large screens */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="lg:col-span-3"
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                Nội dung môn học
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                Khám phá các chủ đề chính của môn học với nội dung chi tiết và tương tác
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {quickLinks.map((link, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.0 + (index * 0.1) }}
-                className="group"
-              >
-                <Link
-                  to={link.href}
-                  className="block bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 group-hover:scale-105"
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {quickLinks.map((link, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.0 + (index * 0.1) }}
+                  className="group"
                 >
-                  <div className="flex items-center mb-4">
-                    <div className={`w-12 h-12 ${link.color} rounded-lg flex items-center justify-center mr-4`}>
-                      <link.icon size={24} />
+                  <Link
+                    to={link.href}
+                    className="block bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 group-hover:scale-105"
+                  >
+                    <div className="flex items-center mb-4">
+                      <div className={`w-12 h-12 ${link.color} rounded-lg flex items-center justify-center mr-4`}>
+                        <link.icon size={24} />
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        {link.title}
+                      </h3>
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      {link.title}
-                    </h3>
-                  </div>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    {link.description}
-                  </p>
-                  <div className="flex items-center text-blue-600 dark:text-blue-400 font-medium">
-                    Tìm hiểu thêm
-                    <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={16} />
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                      {link.description}
+                    </p>
+                    <div className="flex items-center text-blue-600 dark:text-blue-400 font-medium">
+                      Tìm hiểu thêm
+                      <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={16} />
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Sidebar - Takes 1 column on large screens */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
+          >
+            <MainContentSidebar
+              title="Nội dung môn học"
+              showProgress={true}
+              showStats={true}
+            />
+          </motion.div>
+        </div>
 
         {/* Call to Action */}
         <motion.section

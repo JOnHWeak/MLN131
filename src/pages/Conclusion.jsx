@@ -191,6 +191,8 @@ const Conclusion = () => {
             title="Những kết luận chính"
             icon="✅"
             pageId="conclusion-main"
+            image={data.image}
+            imageCaption={data.imageCaption}
           >
             <div className="space-y-6">
               {mainConclusions.map((conclusion, index) => (
@@ -205,11 +207,10 @@ const Conclusion = () => {
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                       {conclusion.conclusion}
                     </h3>
-                    <span className={`text-xs px-2 py-1 rounded ${
-                      conclusion.importance === 'Cao nhất' ? 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300' :
+                    <span className={`text-xs px-2 py-1 rounded ${conclusion.importance === 'Cao nhất' ? 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300' :
                       conclusion.importance === 'Cao' ? 'bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300' :
-                      'bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300'
-                    }`}>
+                        'bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300'
+                      }`}>
                       {conclusion.importance}
                     </span>
                   </div>
@@ -253,7 +254,7 @@ const Conclusion = () => {
                       </h3>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-2">
                     {learning.keyPoints.map((point, pointIndex) => (
                       <div key={pointIndex} className="flex items-start">
@@ -313,7 +314,7 @@ const Conclusion = () => {
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                     {application.area}
                   </h3>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {application.applications.map((app, appIndex) => (
                       <div key={appIndex} className="flex items-start">
@@ -354,11 +355,10 @@ const Conclusion = () => {
                       {prospect.prospect}
                     </h3>
                     <div className="flex items-center space-x-2">
-                      <span className={`text-xs px-2 py-1 rounded ${
-                        prospect.priority === 'Cao' ? 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300' :
+                      <span className={`text-xs px-2 py-1 rounded ${prospect.priority === 'Cao' ? 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300' :
                         prospect.priority === 'Trung bình' ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300' :
-                        'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300'
-                      }`}>
+                          'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300'
+                        }`}>
                         {prospect.priority}
                       </span>
                     </div>
@@ -395,8 +395,8 @@ const Conclusion = () => {
           transition={{ duration: 0.8, delay: 1.2 }}
           className="mb-16"
         >
-          <Quiz 
-            questions={finalQuiz} 
+          <Quiz
+            questions={finalQuiz}
             title="Quiz tổng hợp: Kiểm tra kiến thức toàn bộ môn học"
           />
         </motion.div>
@@ -408,9 +408,9 @@ const Conclusion = () => {
           transition={{ duration: 0.8, delay: 1.4 }}
           className="mb-16"
         >
-          <NoteTaking 
-            pageId="conclusion" 
-            pageTitle="Kết luận môn học" 
+          <NoteTaking
+            pageId="conclusion"
+            pageTitle="Kết luận môn học"
           />
         </motion.div>
 
@@ -434,7 +434,7 @@ const Conclusion = () => {
               Chúc mừng bạn đã hoàn thành môn học!
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Bạn đã nắm vững kiến thức về "Bản chất tôn giáo theo quan điểm Mác – Lênin" 
+              Bạn đã nắm vững kiến thức về "Bản chất tôn giáo theo quan điểm Mác – Lênin"
               và có thể áp dụng vào thực tiễn công việc và cuộc sống.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

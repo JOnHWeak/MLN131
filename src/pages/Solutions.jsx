@@ -212,6 +212,8 @@ const Solutions = () => {
             title="Các giải pháp chính"
             icon="🎯"
             pageId="solutions-main"
+            image={data.image}
+            imageCaption={data.imageCaption}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {data.solutions.map((solution, index) => (
