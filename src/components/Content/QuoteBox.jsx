@@ -11,10 +11,10 @@ const QuoteBox = ({
   variant = "default"
 }) => {
   const variants = {
-    default: "border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900/20",
-    warning: "border-l-4 border-yellow-500 bg-yellow-50 dark:bg-yellow-900/20",
-    success: "border-l-4 border-green-500 bg-green-50 dark:bg-green-900/20",
-    error: "border-l-4 border-red-500 bg-red-50 dark:bg-red-900/20"
+    default: "glass border-l-4 border-blue-400",
+    warning: "glass border-l-4 border-yellow-400",
+    success: "glass border-l-4 border-green-400",
+    error: "glass border-l-4 border-red-400"
   };
 
   return (
@@ -34,12 +34,12 @@ const QuoteBox = ({
             }`}
         />
         <div className="flex-1">
-          <blockquote className="text-lg font-medium text-gray-800 dark:text-gray-200 leading-relaxed mb-3">
+          <blockquote className="text-lg font-medium text-gray-100 leading-relaxed mb-3">
             "{quote}"
           </blockquote>
 
           {(author || source) && (
-            <div className="text-sm text-gray-600 dark:text-gray-400">
+            <div className="text-sm text-gray-300">
               {author && (
                 <span className="font-semibold">{author}</span>
               )}

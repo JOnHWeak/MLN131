@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiChevronLeft, FiChevronRight, FiCheckCircle } from 'react-icons/fi';
+import { FiCheckCircle } from 'react-icons/fi';
 
 const steps = [
     { title: 'Giới thiệu', href: '/introduction' },
@@ -58,81 +58,44 @@ const LearningNav = () => {
         return () => window.removeEventListener('scroll', onScroll);
     }, [activeIndex, navigate]);
 
-    const handlePrev = () => {
-        if (activeIndex > 0) navigate(steps[activeIndex - 1].href);
-    };
-
-    const handleNext = () => {
-        if (activeIndex < steps.length - 1) navigate(steps[activeIndex + 1].href);
-    };
-
     return (
-        <div className="sticky top-16 z-30 bg-gray-50/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-700">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-                {/* Progress bar */}
-                <div className="mb-3">
+        <aside className="hidden md:block fixed inset-y-0 left-0 z-30 w-64 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-r border-gray-200 dark:border-gray-700">
+            <div className="h-full flex flex-col">
+                <div className="p-4">
                     <div className="w-full h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full">
-                        <motion.div
-                            className="h-1.5 bg-blue-600 rounded-full"
-                            initial={{ width: 0 }}
-                            animate={{ width: `${percent}%` }}
-                            transition={{ duration: 0.3 }}
-                        />
+                        <motion.div className="h-1.5 bg-blue-600 rounded-full" initial={{ width: 0 }} animate={{ width: `${percent}%` }} transition={{ duration: 0.3 }} />
                     </div>
-                    <div className="mt-1 text-xs text-gray-500 dark:text-gray-400">Hoàn thành {percent}%</div>
+                    <div className="mt-2 text-xs text-gray-500 dark:text-gray-400">Hoàn thành {percent}%</div>
                 </div>
 
-                {/* Stepper + controls */}
-                <div className="flex items-center justify-between">
-                    <button
-                        onClick={handlePrev}
-                        disabled={activeIndex === 0}
-                        className={`inline-flex items-center px-3 py-2 rounded-lg border text-sm transition-colors ${activeIndex === 0
-                            ? 'border-gray-200 text-gray-400 dark:border-gray-700 dark:text-gray-600 cursor-not-allowed'
-                            : 'border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200'
-                            }`}
-                    >
-                        <FiChevronLeft className="mr-1" /> Trước
-                    </button>
-
-                    <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
+                <nav className="flex-1 overflow-y-auto p-3">
+                    <ul className="space-y-2">
                         {steps.map((step, idx) => {
                             const done = idx < activeIndex || allCompleted;
                             const active = idx === activeIndex;
                             return (
-                                <button
-                                    key={step.href}
-                                    onClick={() => navigate(step.href)}
-                                    className={`px-3 py-1.5 rounded-full text-sm whitespace-nowrap transition-colors ${active
-                                        ? 'bg-blue-600 text-white'
-                                        : done
-                                            ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'
-                                            : 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
-                                        }`}
-                                    title={step.title}
-                                >
-                                    <span className="mr-1 text-xs">
-                                        {done ? <FiCheckCircle className="inline" /> : idx + 1}
-                                    </span>
-                                    {step.title}
-                                </button>
+                                <li key={step.href}>
+                                    <button
+                                        onClick={() => navigate(step.href)}
+                                        className={`w-full text-left px-3 py-2 rounded-lg transition-colors flex items-center ${active
+                                            ? 'bg-blue-600 text-white'
+                                            : done
+                                                ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'
+                                                : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
+                                            }`}
+                                    >
+                                        <span className="mr-2 text-xs">
+                                            {done ? <FiCheckCircle className="inline" /> : idx + 1}
+                                        </span>
+                                        {step.title}
+                                    </button>
+                                </li>
                             );
                         })}
-                    </div>
-
-                    <button
-                        onClick={handleNext}
-                        disabled={activeIndex === steps.length - 1}
-                        className={`inline-flex items-center px-3 py-2 rounded-lg border text-sm transition-colors ${activeIndex === steps.length - 1
-                            ? 'border-gray-200 text-gray-400 dark:border-gray-700 dark:text-gray-600 cursor-not-allowed'
-                            : 'border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200'
-                            }`}
-                    >
-                        Tiếp <FiChevronRight className="ml-1" />
-                    </button>
-                </div>
+                    </ul>
+                </nav>
             </div>
-        </div>
+        </aside>
     );
 };
 

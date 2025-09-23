@@ -27,12 +27,12 @@ function App() {
     <ThemeProvider>
       <AppProvider>
         <Router>
-          <div className="min-h-screen bg-gray-50 dark:bg-gray-900 hide-sidebars">
+          <div className="min-h-screen hide-sidebars">
             <ProgressBar />
 
             <LearningNav />
 
-            <main className="min-h-screen pt-2">
+            <main className="min-h-screen pt-2 md:ml-64">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/introduction" element={<Introduction />} />

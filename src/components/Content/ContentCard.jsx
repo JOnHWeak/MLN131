@@ -32,14 +32,14 @@ const ContentCard = ({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
-      className={`bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-6 border-l-4 border-blue-500 ${className}`}
+      className={`card-portfolio mb-6 ${className}`}
     >
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center flex-1">
           {icon && (
             <span className="text-2xl mr-3 flex-shrink-0">{icon}</span>
           )}
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white leading-tight">
+          <h2 className="text-2xl font-bold text-white leading-tight">
             {title}
           </h2>
         </div>
