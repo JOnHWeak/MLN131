@@ -3,18 +3,14 @@ import { motion } from 'framer-motion';
 import ContentCard from '../components/Content/ContentCard';
 import QuoteBox from '../components/Content/QuoteBox';
 import StatisticsChart from '../components/Content/StatisticsChart';
-import Quiz from '../components/Interactive/Quiz';
 import NoteTaking from '../components/Interactive/NoteTaking';
 import MainContentSidebar from '../components/Layout/MainContentSidebar';
 import { contentData } from '../data/content';
-import { quizData } from '../data/quiz';
 import { FiCheckCircle, FiTarget, FiUsers, FiBookOpen, FiAward, FiTrendingUp } from 'react-icons/fi';
 
 const Conclusion = () => {
   const data = contentData.ketLuan;
 
-  // All quiz questions for final assessment
-  const finalQuiz = quizData;
 
   // Chart data for learning progress
   const learningProgressData = {
@@ -165,7 +161,7 @@ const Conclusion = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex">
+    <div className="min-h-screen flex">
       {/* Fixed Sidebar */}
       <div className="hidden lg:block w-80 bg-white dark:bg-gray-800 shadow-lg fixed left-0 top-0 h-screen overflow-y-auto z-10">
         <div className="p-6 pb-20">
@@ -383,18 +379,7 @@ const Conclusion = () => {
             />
           </motion.div>
 
-          {/* Final Quiz */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="mb-16"
-          >
-            <Quiz
-              questions={finalQuiz}
-              title="Quiz tổng hợp: Kiểm tra kiến thức toàn bộ môn học"
-            />
-          </motion.div>
+
 
           {/* Note Taking Section */}
           <motion.div

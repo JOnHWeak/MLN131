@@ -18,6 +18,7 @@ import Progress from './pages/Progress';
 import Stats from './pages/Stats';
 import Goals from './pages/Goals';
 import Slides from './pages/Slides';
+import FinalQuiz from './pages/FinalQuiz';
 import './styles/globals.css';
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
     <ThemeProvider>
       <AppProvider>
         <Router>
-          <div className="min-h-screen hide-sidebars">
+          <div className="min-h-screen hide-sidebars portfolio-bg">
             <ProgressBar />
 
             <LearningNav />
@@ -47,6 +48,7 @@ function App() {
                 <Route path="/stats" element={<Stats />} />
                 <Route path="/goals" element={<Goals />} />
                 <Route path="/slides" element={<Slides />} />
+                <Route path="/final-quiz" element={<FinalQuiz />} />
               </Routes>
             </main>
 

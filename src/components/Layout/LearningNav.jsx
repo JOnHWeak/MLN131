@@ -10,7 +10,8 @@ const steps = [
     { title: 'Chính sách Việt Nam', href: '/vietnam-policy' },
     { title: 'Thực tiễn Việt Nam', href: '/practical' },
     { title: 'Giải pháp', href: '/solutions' },
-    { title: 'Kết luận', href: '/conclusion' }
+    { title: 'Kết luận', href: '/conclusion' },
+    { title: 'Quiz tổng hợp', href: '/final-quiz' }
 ];
 
 const LearningNav = () => {

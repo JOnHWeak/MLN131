@@ -45,6 +45,14 @@ body {
   background-color: var(--bg-secondary);
 }
 
+/* Ensure background applies even if some pages override body */
+.portfolio-bg {
+  background-image: url('/assets/portfolio/Background.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 /* Font Size Classes */
 .font-small {
   font-size: 0.875rem;

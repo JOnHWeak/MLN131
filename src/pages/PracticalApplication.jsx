@@ -187,7 +187,7 @@ const PracticalApplication = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex">
+    <div className="min-h-screen flex">
       {/* Fixed Sidebar */}
       <div className="hidden lg:block w-80 bg-white dark:bg-gray-800 shadow-lg fixed left-0 top-0 h-screen overflow-y-auto z-10">
         <div className="p-6 pb-20">
