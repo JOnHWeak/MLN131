@@ -1,3 +1,14 @@
+Environment variables
+---------------------
+
+Create a `.env` file in the project root with:
+
+```
+VITE_GEMINI_API_KEY=YOUR_GEMINI_KEY
+```
+
+The chat widget (`Hỏi AI`) will automatically use this key at runtime (Google Gemini API).
+
 # Bản chất tôn giáo theo quan điểm Mác – Lênin
 
 Ứng dụng học tập tương tác về môn học "Bản chất tôn giáo theo quan điểm Mác – Lênin" được xây dựng bằng React với giao diện hiện đại và tính năng tương tác cao.
