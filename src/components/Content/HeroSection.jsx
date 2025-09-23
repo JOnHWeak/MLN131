@@ -23,11 +23,21 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-20">
+    <section
+      className="relative py-24"
+      style={{
+        background: 'var(--portfolio-bg)',
+        backgroundImage: "url('/assets/portfolio/Background.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+    >
       {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-200 dark:bg-blue-900 rounded-full opacity-20 blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-200 dark:bg-purple-900 rounded-full opacity-20 blur-3xl"></div>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Decorative assets from Portfolio pack (render only if present) */}
+        <img src="/assets/portfolio/Ellipse 1.png" alt="" className="hidden md:block absolute -top-24 -right-24 w-80 opacity-60" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+        <img src="/assets/portfolio/Ellipse 2.png" alt="" className="hidden md:block absolute -bottom-24 -left-24 w-80 opacity-50" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+        <img src="/assets/portfolio/Gradient.png" alt="" className="hidden md:block absolute inset-0 w-full h-full object-cover opacity-30" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,14 +49,14 @@ const HeroSection = () => {
             transition={{ duration: 0.8 }}
             className="mb-8"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6">
               Bản chất tôn giáo theo quan điểm
-              <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-blue-400 via-sky-400 to-purple-400 bg-clip-text text-transparent">
                 Mác – Lênin
               </span>
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Khám phá và hiểu sâu về quan điểm khoa học của chủ nghĩa Mác-Lênin 
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Khám phá và hiểu sâu về quan điểm khoa học của chủ nghĩa Mác-Lênin
               về tôn giáo, từ lý thuyết đến thực tiễn tại Việt Nam hiện nay.
             </p>
           </motion.div>
@@ -60,14 +70,14 @@ const HeroSection = () => {
           >
             <Link
               to="/introduction"
-              className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors shadow-lg hover:shadow-xl"
+              className="btn-primary-portfolio"
             >
               Bắt đầu học ngay
               <FiArrowRight className="ml-2" size={20} />
             </Link>
             <Link
               to="/marx-lenin-view"
-              className="inline-flex items-center px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-semibold rounded-lg border-2 border-gray-300 dark:border-gray-600 hover:border-blue-500 transition-colors shadow-lg hover:shadow-xl"
+              className="inline-flex items-center px-8 py-4 rounded-full glass text-white"
             >
               Tìm hiểu quan điểm Mác-Lênin
             </Link>
@@ -86,15 +96,15 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 + (index * 0.1) }}
-                className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                className="text-center p-6 card-portfolio text-white"
               >
                 <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <feature.icon className="text-blue-600 dark:text-blue-400" size={24} />
+                  <feature.icon className="text-blue-300" size={24} />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                <p className="text-gray-300 text-sm">
                   {feature.description}
                 </p>
               </motion.div>

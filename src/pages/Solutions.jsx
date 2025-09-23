@@ -463,18 +463,28 @@ const Solutions = () => {
             />
           </motion.div>
 
-          {/* Quiz Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="mb-16"
-          >
-            <Quiz
-              questions={solutionsQuiz}
-              title="Quiz: Giải pháp xử lý vấn đề tôn giáo"
-            />
-          </motion.div>
+          {(() => {
+            try {
+              const visited = JSON.parse(localStorage.getItem('visited-steps') || '[]');
+              const totalSteps = 7;
+              if (visited.length >= totalSteps && [...Array(totalSteps).keys()].every(i => visited.includes(i))) {
+                return (
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 1.2 }}
+                    className="mb-16"
+                  >
+                    <Quiz
+                      questions={solutionsQuiz}
+                      title="Quiz: Giải pháp xử lý vấn đề tôn giáo"
+                    />
+                  </motion.div>
+                );
+              }
+            } catch { }
+            return null;
+          })()}
 
           {/* Note Taking Section */}
           <motion.div

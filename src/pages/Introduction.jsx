@@ -6,7 +6,6 @@ import Timeline from '../components/Content/Timeline';
 import NoteTaking from '../components/Interactive/NoteTaking';
 import MainContentSidebar from '../components/Layout/MainContentSidebar';
 import RightSidebar from '../components/Layout/RightSidebar';
-import Header from '../components/Layout/Header';
 import { FiBookOpen, FiTarget, FiUsers, FiTrendingUp } from 'react-icons/fi';
 
 const Introduction = () => {
@@ -353,8 +352,7 @@ const Introduction = () => {
         </div>
       </div>
 
-      {/* Header with Tabs - Added below main content */}
-      <Header />
+
     </div>
   );
 };

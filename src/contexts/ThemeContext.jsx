@@ -28,7 +28,10 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem('fontSize', fontSize);
-    document.documentElement.className = `font-${fontSize}`;
+    // Preserve existing classes (e.g., dark) while adjusting font size utility
+    const root = document.documentElement;
+    root.classList.remove('font-small', 'font-medium', 'font-large', 'font-xlarge');
+    root.classList.add(`font-${fontSize}`);
   }, [fontSize]);
 
   const toggleTheme = () => {

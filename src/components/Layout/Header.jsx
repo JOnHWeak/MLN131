@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiBookOpen, FiTrendingUp, FiBarChart, FiTarget } from 'react-icons/fi';
+import { FiBookOpen, FiBarChart, FiTarget } from 'react-icons/fi';
 
 const Header = () => {
   const location = useLocation();
@@ -13,13 +13,6 @@ const Header = () => {
       icon: FiBookOpen,
       href: '/overview',
       description: 'Thông tin chung về môn học'
-    },
-    {
-      id: 'progress',
-      name: 'Tiến độ',
-      icon: FiTrendingUp,
-      href: '/progress',
-      description: 'Theo dõi quá trình học tập'
     },
     {
       id: 'stats',
@@ -39,9 +32,9 @@ const Header = () => {
 
 
   return (
-    <div className="header-container">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex items-center justify-between">
+    <div className="header-container sticky top-0 z-40">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
           {/* Logo Section */}
           <div className="logo-section">
             <div className="logo-icon"></div>

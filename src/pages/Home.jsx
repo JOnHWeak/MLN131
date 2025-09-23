@@ -7,7 +7,6 @@ import QuoteBox from '../components/Content/QuoteBox';
 import StatisticsChart from '../components/Content/StatisticsChart';
 import MainContentSidebar from '../components/Layout/MainContentSidebar';
 import RightSidebar from '../components/Layout/RightSidebar';
-import Header from '../components/Layout/Header';
 import { contentData } from '../data/content';
 import { FiArrowRight, FiBookOpen, FiUsers, FiTarget, FiTrendingUp } from 'react-icons/fi';
 
@@ -367,8 +366,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Header with Tabs - Added below main content */}
-      <Header />
+
     </div>
   );
 };

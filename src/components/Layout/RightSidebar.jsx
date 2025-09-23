@@ -10,6 +10,7 @@ const RightSidebar = ({ className = "" }) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className={`space-y-6 ${className}`}
+            style={{ position: 'sticky', top: 80 }}
         >
             {/* Study Tips */}
             <ContentCard

@@ -283,26 +283,7 @@ const Conclusion = () => {
             </ContentCard>
           </motion.div>
 
-          {/* Learning Progress Chart */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mb-16"
-          >
-            <ContentCard
-              title="Tiến độ học tập"
-              icon="📈"
-              pageId="conclusion-progress"
-            >
-              <StatisticsChart
-                data={learningProgressData}
-                type="bar"
-                title="Mức độ hiểu biết các chủ đề"
-                delay={0.6}
-              />
-            </ContentCard>
-          </motion.div>
+
 
           {/* Practical Applications */}
           <motion.div

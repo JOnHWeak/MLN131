@@ -3,13 +3,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useApp } from '../../contexts/AppContext';
 import { useTheme } from '../../contexts/ThemeContext';
-import { 
-  FiHome, 
-  FiBookOpen, 
-  FiUsers, 
-  FiFlag, 
-  FiTrendingUp, 
-  FiTarget, 
+import {
+  FiHome,
+  FiBookOpen,
+  FiUsers,
+  FiFlag,
+  FiTrendingUp,
+  FiTarget,
   FiCheckCircle,
   FiX,
   FiBookmark
@@ -21,51 +21,51 @@ const Sidebar = () => {
   const location = useLocation();
 
   const navigation = [
-    { 
-      name: 'Trang chủ', 
-      href: '/', 
+    {
+      name: 'Trang chủ',
+      href: '/',
       icon: FiHome,
       description: 'Tổng quan về môn học'
     },
-    { 
-      name: 'Giới thiệu', 
-      href: '/introduction', 
+    {
+      name: 'Giới thiệu',
+      href: '/introduction',
       icon: FiBookOpen,
       description: 'Mở đầu và khái niệm cơ bản'
     },
-    { 
-      name: 'Quan điểm Mác-Lênin', 
-      href: '/marx-lenin-view', 
+    {
+      name: 'Quan điểm Mác-Lênin',
+      href: '/marx-lenin-view',
       icon: FiBookOpen,
       description: 'Bản chất tôn giáo theo Mác-Lênin'
     },
-    { 
-      name: 'Tôn giáo trong XHCN', 
-      href: '/socialism-religion', 
+    {
+      name: 'Tôn giáo trong XHCN',
+      href: '/socialism-religion',
       icon: FiUsers,
       description: 'Quan điểm về tôn giáo trong xã hội chủ nghĩa'
     },
-    { 
-      name: 'Chính sách Việt Nam', 
-      href: '/vietnam-policy', 
+    {
+      name: 'Chính sách Việt Nam',
+      href: '/vietnam-policy',
       icon: FiFlag,
       description: 'Chính sách tôn giáo của Việt Nam'
     },
-    { 
-      name: 'Thực tiễn Việt Nam', 
-      href: '/practical', 
+    {
+      name: 'Thực tiễn Việt Nam',
+      href: '/practical',
       icon: FiTrendingUp,
       description: 'Liên hệ thực tiễn tại Việt Nam'
     },
-    { 
-      name: 'Giải pháp', 
-      href: '/solutions', 
+    {
+      name: 'Giải pháp',
+      href: '/solutions',
       icon: FiTarget,
       description: 'Giải pháp trong giai đoạn hiện nay'
     },
-    { 
-      name: 'Kết luận', 
-      href: '/conclusion', 
+    {
+      name: 'Kết luận',
+      href: '/conclusion',
       icon: FiCheckCircle,
       description: 'Tổng kết và kết luận'
     }
@@ -113,7 +113,8 @@ const Sidebar = () => {
             initial="closed"
             animate="open"
             exit="closed"
-            className="fixed inset-y-0 left-0 z-50 w-80 bg-white dark:bg-gray-800 shadow-xl md:shadow-none md:relative md:translate-x-0"
+            className="fixed left-0 z-40 w-80 bg-white dark:bg-gray-800 shadow-xl md:shadow-none md:relative md:translate-x-0"
+            style={{ top: '64px', bottom: 0 }}
           >
             <div className="flex flex-col h-full">
               {/* Header */}
@@ -135,7 +136,7 @@ const Sidebar = () => {
                   {navigation.map((item, index) => {
                     const isActive = location.pathname === item.href;
                     const bookmarked = isBookmarked(item.href);
-                    
+
                     return (
                       <motion.li
                         key={item.name}
@@ -146,20 +147,18 @@ const Sidebar = () => {
                         <Link
                           to={item.href}
                           onClick={() => setSidebarOpen(false)}
-                          className={`group flex items-center p-3 rounded-lg transition-all duration-200 ${
-                            isActive
-                              ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300'
-                              : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-                          }`}
+                          className={`group flex items-center p-3 rounded-lg transition-all duration-200 ${isActive
+                            ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300'
+                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                            }`}
                         >
                           <div className="flex items-center flex-1">
-                            <item.icon 
-                              size={20} 
-                              className={`mr-3 ${
-                                isActive 
-                                  ? 'text-blue-600 dark:text-blue-400' 
-                                  : 'text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300'
-                              }`} 
+                            <item.icon
+                              size={20}
+                              className={`mr-3 ${isActive
+                                ? 'text-blue-600 dark:text-blue-400'
+                                : 'text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300'
+                                }`}
                             />
                             <div className="flex-1">
                               <div className="font-medium">{item.name}</div>
@@ -169,9 +168,9 @@ const Sidebar = () => {
                             </div>
                           </div>
                           {bookmarked && (
-                            <FiBookmark 
-                              size={16} 
-                              className="text-yellow-500 ml-2" 
+                            <FiBookmark
+                              size={16}
+                              className="text-yellow-500 ml-2"
                             />
                           )}
                         </Link>

@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { AppProvider } from './contexts/AppContext';
-import Header from './components/Layout/Header';
-import Sidebar from './components/Layout/Sidebar';
 import ProgressBar from './components/Layout/ProgressBar';
+import LearningNav from './components/Layout/LearningNav';
 import SearchBox from './components/Interactive/SearchBox';
 import Home from './pages/Home';
 import Introduction from './pages/Introduction';
@@ -18,6 +17,7 @@ import Overview from './pages/Overview';
 import Progress from './pages/Progress';
 import Stats from './pages/Stats';
 import Goals from './pages/Goals';
+import Slides from './pages/Slides';
 import './styles/globals.css';
 
 function App() {
@@ -27,12 +27,12 @@ function App() {
     <ThemeProvider>
       <AppProvider>
         <Router>
-          <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+          <div className="min-h-screen bg-gray-50 dark:bg-gray-900 hide-sidebars">
             <ProgressBar />
-            <Header />
-            <Sidebar />
 
-            <main className="min-h-screen">
+            <LearningNav />
+
+            <main className="min-h-screen pt-2">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/introduction" element={<Introduction />} />
@@ -43,9 +43,10 @@ function App() {
                 <Route path="/solutions" element={<Solutions />} />
                 <Route path="/conclusion" element={<Conclusion />} />
                 <Route path="/overview" element={<Overview />} />
-                <Route path="/progress" element={<Progress />} />
+                {/* Removed progress route as progress is implicit via LearningNav */}
                 <Route path="/stats" element={<Stats />} />
                 <Route path="/goals" element={<Goals />} />
+                <Route path="/slides" element={<Slides />} />
               </Routes>
             </main>
 
