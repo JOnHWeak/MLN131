@@ -8,6 +8,7 @@ const ChatWidget = () => {
     const [open, setOpen] = useState(false);
     const apiKey = import.meta.env.VITE_GEMINI_API_KEY || '';
     const [loading, setLoading] = useState(false);
+    const modelId = import.meta.env.VITE_GEMINI_MODEL || 'gemini-1.5-flash';
     const [messages, setMessages] = useState(() => {
         try {
             return JSON.parse(localStorage.getItem('chat_messages') || '[]');
@@ -40,7 +41,8 @@ const ChatWidget = () => {
                 });
                 contents.push({ role: 'user', parts: [{ text }] });
 
-                const resp = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=' + apiKey, {
+                const endpoint = `https://generativelanguage.googleapis.com/v1/models/${modelId}:generateContent?key=${apiKey}`;
+                const resp = await fetch(endpoint, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ contents, generationConfig: { temperature: 0.2, maxOutputTokens: 300 } })
@@ -54,7 +56,7 @@ const ChatWidget = () => {
                     reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || 'Xin lỗi, hiện không thể trả lời.';
                 }
             } else {
-                reply = 'Bạn có thể xem mục tương ứng trong thanh điều hướng: Giới thiệu, Quan điểm Mác-Lênin, XHCN, Chính sách VN, Thực tiễn, Giải pháp, Kết luận. Thêm VITE_GEMINI_API_KEY trong .env để bật trả lời AI.';
+                reply = 'Bạn có thể xem mục tương ứng trong thanh điều hướng: Giới thiệu, Quan điểm Mác-Lênin, XHCN, Chính sách VN, Thực tiễn, Giải pháp, Kết luận. Thêm VITE_GEMINI_API_KEY trong .env hoặc Vercel Env để bật trả lời AI.';
             }
 
             setMessages((m) => [...m, { role: 'assistant', content: reply, ts: Date.now() }]);
@@ -101,7 +103,7 @@ const ChatWidget = () => {
 
                         {!apiKey && (
                             <div className="mb-3 text-xs text-yellow-300">
-                                Chưa cấu hình API key. Thêm biến môi trường VITE_OPENAI_API_KEY để bật trả lời AI.
+                                Chưa cấu hình API key. Thêm biến môi trường VITE_GEMINI_API_KEY để bật trả lời AI.
                             </div>
                         )}
 
