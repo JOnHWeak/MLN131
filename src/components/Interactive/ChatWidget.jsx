@@ -8,7 +8,7 @@ const ChatWidget = () => {
     const [open, setOpen] = useState(false);
     const apiKey = import.meta.env.VITE_GEMINI_API_KEY || '';
     const [loading, setLoading] = useState(false);
-    const modelId = import.meta.env.VITE_GEMINI_MODEL || 'gemini-1.5-flash';
+    const modelId = import.meta.env.VITE_GEMINI_MODEL || 'gemini-1.5-flash-latest';
     const [messages, setMessages] = useState(() => {
         try {
             return JSON.parse(localStorage.getItem('chat_messages') || '[]');
@@ -41,7 +41,8 @@ const ChatWidget = () => {
                 });
                 contents.push({ role: 'user', parts: [{ text }] });
 
-                const endpoint = `https://generativelanguage.googleapis.com/v1/models/${modelId}:generateContent?key=${apiKey}`;
+                // Use v1beta endpoint which supports generateContent for these models
+                const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${apiKey}`;
                 const resp = await fetch(endpoint, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
