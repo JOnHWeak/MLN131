@@ -10,7 +10,7 @@ export const getImageWithFallback = (imagePath, fallbackPath = '/assets/images/p
 // List of all available images
 export const availableImages = [
   'classroom-education.jpg',
-  'religious-festival.jpg', 
+  'religious-festival.jpg',
   'charity-kitchen.jpg',
   'religious-meeting.jpg',
   'positive-role-of-religion.jpg',
