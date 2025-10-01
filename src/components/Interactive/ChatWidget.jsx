@@ -8,7 +8,7 @@ const ChatWidget = () => {
     const [open, setOpen] = useState(false);
     const apiKey = import.meta.env.VITE_GEMINI_API_KEY || '';
     const [loading, setLoading] = useState(false);
-    const modelId = import.meta.env.VITE_GEMINI_MODEL || 'gemini-1.5-flash-latest';
+    const modelId = 'gemini-1.5-flash';
     const [messages, setMessages] = useState(() => {
         try {
             return JSON.parse(localStorage.getItem('chat_messages') || '[]');
