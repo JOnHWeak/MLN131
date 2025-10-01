@@ -11,13 +11,18 @@
             }
         }
     ],
-    "routes": [
+    "rewrites": [
         {
-            "handle": "filesystem"
+            "source": "/assets/(.*)",
+            "destination": "/assets/$1"
         },
         {
-            "src": "/.*",
-            "dest": "/index.html"
+            "source": "/vite.svg",
+            "destination": "/vite.svg"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
         }
     ],
     "build": {
