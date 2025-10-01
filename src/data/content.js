@@ -1,8 +1,16 @@
+import classroomEducation from '@images/classroom-education.jpg';
+import religiousFestival from '@images/religious-festival.jpg';
+import charityKitchen from '@images/charity-kitchen.jpg';
+import religiousMeeting from '@images/religious-meeting.jpg';
+import positiveRole from '@images/positive-role-of-religion.jpg';
+import unityDiversity from '@images/unity-diversity.jpg';
+import marxLenin from '@images/marx-lenin-religion-concept.jpg';
+
 export const contentData = {
     banChatTonGiao: {
         title: "1. Bản chất tôn giáo theo quan điểm Mác – Lênin",
         introduction: "Mác – Lênin coi tôn giáo là một hiện tượng xã hội có nguồn gốc từ điều kiện sinh hoạt vật chất và tinh thần của con người.",
-        image: "/assets/images/marx-lenin-religion-concept.jpg",
+        image: marxLenin,
         imageCaption: "Quan điểm Mác-Lênin về bản chất tôn giáo - hiện tượng xã hội có nguồn gốc từ điều kiện sinh hoạt",
         characteristics: [
             {
@@ -38,7 +46,7 @@ export const contentData = {
         title: "2. Quan điểm về tôn giáo trong xã hội chủ nghĩa",
         definition: "Trong thời kỳ quá độ lên CNXH, tôn giáo vẫn còn tồn tại lâu dài.",
         reason: "Ý thức xã hội thay đổi chậm hơn tồn tại xã hội, đặc biệt ở vùng sâu, vùng xa, nơi trình độ dân trí còn thấp.",
-        image: "/assets/images/classroom-education.jpg",
+        image: classroomEducation,
         imageCaption: "Giáo dục ở vùng sâu, vùng xa - nơi trình độ dân trí còn thấp, tôn giáo vẫn có ảnh hưởng mạnh",
         policies: [
             {
@@ -67,7 +75,7 @@ export const contentData = {
 
     chinhSachVietNam: {
         title: "3. Chính sách tôn giáo của Việt Nam hiện nay",
-        image: "/assets/images/religious-festival.jpg",
+        image: religiousFestival,
         imageCaption: "Lễ hội tôn giáo được tổ chức công khai - thể hiện quyền tự do tín ngưỡng (tự do tổ chức lễ)",
         policies: [
             {
@@ -116,11 +124,11 @@ export const contentData = {
         },
         images: [
             {
-                src: "/assets/images/charity-kitchen.jpg",
+                src: charityKitchen,
                 caption: "Bếp ăn từ thiện - đóng góp tích cực của tôn giáo trong xã hội"
             },
             {
-                src: "/assets/images/religious-meeting.jpg",
+                src: religiousMeeting,
                 caption: "Chức sắc tôn giáo tham gia Mặt trận Tổ quốc, vận động tín đồ chấp hành pháp luật, bảo vệ môi trường"
             }
         ],
@@ -137,7 +145,7 @@ export const contentData = {
 
     giaiPhap: {
         title: "5. Giải pháp trong giai đoạn hiện nay",
-        image: "/assets/images/positive-role-of-religion.jpg",
+        image: positiveRole,
         imageCaption: "Phát huy vai trò tích cực của tôn giáo - khuyến khích tham gia bảo vệ môi trường, hỗ trợ người nghèo, phát triển giáo dục",
         solutions: [
             {
@@ -181,7 +189,7 @@ export const contentData = {
 
     ketLuan: {
         title: "6. Kết luận",
-        image: "/assets/images/unity-diversity.jpg",
+        image: unityDiversity,
         imageCaption: "Đoàn kết các dân tộc, tôn giáo - nền tảng cho sự phát triển bền vững",
         mainPoints: [
             "Tôn trọng quyền tự do tín ngưỡng và không tín ngưỡng",
