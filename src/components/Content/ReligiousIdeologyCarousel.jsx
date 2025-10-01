@@ -9,6 +9,16 @@ import {
   Feather,
 } from "lucide-react";
 
+// Import images so Vite bundles them for production
+import CQ83_1 from "../../asset/CQ/CQ83-1.jpg";
+import CQ83_2 from "../../asset/CQ/CQ83-2.jpg";
+import CQ83_3 from "../../asset/CQ/CQ83-3.jpg";
+import CQ83_4 from "../../asset/CQ/CQ83-4.jpg";
+import CQ83_5 from "../../asset/CQ/CQ83-5.jpg";
+import CQ83_6 from "../../asset/CQ/CQ83-6.jpg";
+import CQ83_7 from "../../asset/CQ/CQ83-7.jpg";
+import CQ83_8 from "../../asset/CQ/CQ83-8.jpg";
+
 const ReligiousIdeologyCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -22,7 +32,7 @@ const ReligiousIdeologyCarousel = () => {
           biệt.
           <div className="flex justify-center gap-4 my-4">
             <img
-              src="/src/asset/CQ/CQ83-3.jpg"
+              src={CQ83_3}
               alt="Description 1"
               className="w-1/2 rounded-lg shadow-md"
             />
@@ -44,12 +54,12 @@ const ReligiousIdeologyCarousel = () => {
           đích sống và sự tồn tại sau cái chết.
           <div className="flex justify-center gap-4 my-4">
             <img
-              src="/src/asset/CQ/CQ83-1.jpg"
+              src={CQ83_1}
               alt="Description 1"
               className="w-1/2 rounded-lg shadow-md"
             />
             <img
-              src="/src/asset/CQ/CQ83-2.jpg"
+              src={CQ83_2}
               alt="Description 2"
               className="w-1/2 rounded-lg shadow-md"
             />
@@ -76,12 +86,12 @@ const ReligiousIdeologyCarousel = () => {
           hướng đối kháng, phân ly mạnh mẽ.
           <div className="flex justify-center gap-4 my-4">
             <img
-              src="/src/asset/CQ/CQ83-4.jpg"
+              src={CQ83_4}
               alt="Description 1"
               className="w-1/2 rounded-lg shadow-md"
             />
             <img
-              src="/src/asset/CQ/CQ83-5.jpg"
+              src={CQ83_5}
               alt="Description 2"
               className="w-1/2 rounded-lg shadow-md"
             />
@@ -106,12 +116,12 @@ const ReligiousIdeologyCarousel = () => {
           nhưng thực chất có nền tảng thế tục.
           <div className="flex justify-center gap-4 my-4">
             <img
-              src="/src/asset/CQ/CQ83-6.jpg"
+              src={CQ83_6}
               alt="Description 1"
               className="w-1/2 rounded-lg shadow-md"
             />
             <img
-              src="/src/asset/CQ/CQ83-7.jpg"
+              src={CQ83_7}
               alt="Description 1"
               className="w-1/2 rounded-lg shadow-md"
             />
@@ -135,7 +145,7 @@ const ReligiousIdeologyCarousel = () => {
           hướng phân cực và đối lập,
           <div className="flex justify-center gap-4 my-4">
             <img
-              src="/src/asset/CQ/CQ83-8.jpg"
+              src={CQ83_8}
               alt="Description 1"
               className="w-1/2 rounded-lg shadow-md"
             />
@@ -231,11 +241,10 @@ const ReligiousIdeologyCarousel = () => {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                currentSlide === index
-                  ? "bg-gradient-to-r from-blue-500 to-purple-500 scale-125"
-                  : "bg-slate-300 hover:bg-slate-400"
-              }`}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === index
+                ? "bg-gradient-to-r from-blue-500 to-purple-500 scale-125"
+                : "bg-slate-300 hover:bg-slate-400"
+                }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}

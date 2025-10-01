@@ -8,6 +8,11 @@ import {
   ExternalLink,
 } from "lucide-react";
 
+// Import images so they are bundled correctly by Vite
+import CQ85_1 from "../../asset/CQ/CQ85-1.jpg";
+import CQ85_2 from "../../asset/CQ/CQ85-2.jpg";
+import CQ85_3 from "../../asset/CQ/CQ85-3.jpg";
+
 const VietnamReligionHomepage = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -53,7 +58,7 @@ const VietnamReligionHomepage = () => {
           đình, bạn bè và hàng xóm.
           <div className="flex justify-center gap-4 my-4">
             <img
-              src="/src/asset/CQ/CQ85-1.jpg"
+              src={CQ85_1}
               alt="Description 1"
               className="w-1/2 rounded-lg shadow-md"
             />
@@ -73,7 +78,7 @@ const VietnamReligionHomepage = () => {
           <br />
           <div className="flex justify-center gap-4 my-4">
             <img
-              src="/src/asset/CQ/CQ85-2.jpg"
+              src={CQ85_2}
               alt="Description 1"
               className="w-1/2 rounded-lg shadow-md"
             />
@@ -95,7 +100,7 @@ const VietnamReligionHomepage = () => {
           “tôn giáo mới” và “tín ngưỡng cũ”.
           <div className="flex justify-center gap-4 my-4">
             <img
-              src="/src/asset/CQ/CQ85-3.jpg"
+              src={CQ85_3}
               alt="Description 1"
               className="w-full rounded-lg shadow-md"
             />
@@ -116,15 +121,12 @@ const VietnamReligionHomepage = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className={`group relative overflow-hidden rounded-3xl bg-gradient-to-br ${
-                  feature.bgGradient
-                } p-8 border ${
-                  feature.borderColor
-                } shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 ${
-                  isVisible
+                className={`group relative overflow-hidden rounded-3xl bg-gradient-to-br ${feature.bgGradient
+                  } p-8 border ${feature.borderColor
+                  } shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 ${isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-10"
-                }`}
+                  }`}
                 style={{ transitionDelay: `${index * 150 + 600}ms` }}
               >
                 {/* Background Pattern */}
@@ -159,11 +161,10 @@ const VietnamReligionHomepage = () => {
 
           {/* Summary Section */}
           <div
-            className={`grid grid-cols-1 lg:grid-cols-3 gap-8 transition-all duration-1000 delay-1000 ${
-              isVisible
+            className={`grid grid-cols-1 lg:grid-cols-3 gap-8 transition-all duration-1000 delay-1000 ${isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
-            }`}
+              }`}
           ></div>
         </div>
       </section>
